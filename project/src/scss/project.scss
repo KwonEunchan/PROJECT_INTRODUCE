@@ -1,0 +1,277 @@
+@import "./mixin.scss";
+@import "./variables.scss";
+@import "./animation.scss";
+
+// 전체 설정
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  font-family: 'Noto Sans KR', sans-serif;
+  text-align: center;
+  list-style: none;
+}
+
+.App {
+  overflow-x: hidden;
+}
+
+
+//헤더
+.header {
+  width: 100vw;
+  height: 10vh;
+  border-bottom: .1vw solid rgba(black, .1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  .profile {
+    width: 8vh;
+    height: 8vh;
+    border-radius: 50%;
+
+    background: {
+      position: center;
+      size: cover;
+      image: url('../me.jpg');
+    }
+
+    ;
+  }
+
+  ul {
+    display: flex;
+    width: 50vh;
+    justify-content: space-between;
+    align-items: center;
+
+    li {
+      font-size: 3vh;
+      font-weight: 700;
+      transition: .2s;
+      cursor: pointer;
+      @include effectBtn;
+
+      &:hover {
+        color: $main-color;
+      }
+    }
+  }
+}
+
+
+// 자기소개
+.intro {
+  width: 100vw;
+  height: 50vh;
+  background-color: #F4F4F4;
+  position: relative;
+
+  .introText1 {
+    position: absolute;
+    font-size: 8vh;
+    color: $sub-color;
+    font-weight: 400;
+    left: 10vw;
+    opacity: 0;
+
+    animation: {
+      duration: 1s;
+      fill-mode: forwards;
+    }
+
+    ;
+
+    &:nth-child(1) {
+      top: 5vh;
+
+      animation: {
+        name: introTextShowFirst;
+        delay: .5s;
+      }
+
+      ;
+    }
+
+    &:nth-child(2) {
+      top: 15vh;
+
+      animation: {
+        name: introTextShowSecond;
+        delay: 1s;
+      }
+
+      ;
+    }
+
+
+    span {
+      font-weight: 700;
+      color: $main-color;
+    }
+  }
+
+  .introText2 {
+    position: absolute;
+    font-size: 5vh;
+    left: 10vw;
+    top: 35vh;
+    color: rgba(black, .7);
+
+    span {
+      color: black;
+    }
+  }
+}
+
+//강점
+.strong {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+
+  h1 {
+    position: absolute;
+    top: 20vh;
+    left: 0;
+    right: 0;
+  }
+
+  .myStrBox {
+    position: absolute;
+    width: 80vw;
+    height: 70vh;
+    top: 25vh;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    white-space: pre-wrap;
+
+    .myStr {
+      opacity: 0;
+      top: 10vh;
+      width: 20vw;
+      height: 23vw;
+      position: relative;
+      transition: 1s;
+      @include flexBoxCenter;
+      animation: .5s linear forwards;
+      justify-content: space-around;
+
+      @for $ptr from 1 through 3 {
+        &:nth-child(#{$ptr}) {
+          .myStrImg {
+            background-image: url("../images/myStr#{$ptr}.png");
+          }
+
+          animation-delay: #{$ptr*0.2}s;
+        }
+      }
+
+
+      .myStrImg {
+        width: 15vw;
+        height: 15vw;
+        box-shadow: 0 0 1vw 0 rgba(black, .1);
+        border-radius: 50%;
+
+        background: {
+          size: 60%;
+          repeat: no-repeat;
+          position: center;
+        }
+
+        ;
+      }
+
+      h2 {
+        color: $strong-font2;
+      }
+
+      h5 {
+        color: rgba(black, .7);
+      }
+    }
+  }
+}
+
+//학력
+.school {
+  position: relative;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100vw;
+  height: 50vh;
+  background-color: #F4F4F4;
+
+  .schoolIntro {
+    width: 30vw;
+    height: 100%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    position: absolute;
+    white-space: pre-wrap;
+    @include flexBoxCenter;
+
+    h1 {
+      font-size: 3vw;
+    }
+
+    h5 {
+      font-size: 1vw;
+      font-weight: 400;
+    }
+
+    .schoolIntroImg {
+      width: 10vw;
+      height: 10vw;
+
+      background: {
+        image: url(../images/edu.png);
+        size: cover;
+      }
+
+      ;
+    }
+  }
+
+  .schoolPage {
+    width: 30vw;
+    height: 100%;
+    background-color: white;
+    box-shadow: 0 0 1vw 0 rgba(black, .1);
+    position: absolute;
+    animation: .5s linear forwards;
+    background: {
+      size: cover;
+    };
+
+    &.schoolPageLeft {
+      background-image: url(../images/yil_cover.jpg);
+    }
+    &.schoolPageRight {
+      background-image: url(../images/cbnu_cover.jpg);
+    }
+  }
+}
+
+//사회활동
+.arbeit{
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+
+  h1{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 10vh;
+  }
+}

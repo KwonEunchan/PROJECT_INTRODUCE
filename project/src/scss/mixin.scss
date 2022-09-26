@@ -1,0 +1,24 @@
+@mixin center {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+@mixin flexBoxCenter{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin effectBtn{
+  &:hover{
+    scale: 1.05;
+  }
+  &:active{
+    scale: .98;
+  }
+}

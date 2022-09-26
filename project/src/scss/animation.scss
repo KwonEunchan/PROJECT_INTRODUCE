@@ -1,0 +1,55 @@
+@keyframes introTextShowFirst {
+  0% {
+    top: 15vh;
+    opacity: 0;
+  }
+
+  100% {
+    top: 5vh;
+    opacity: 1;
+  }
+}
+
+@keyframes introTextShowSecond {
+  0% {
+    top: 25vh;
+    opacity: 0;
+  }
+
+  100% {
+    top: 15vh;
+    opacity: 1;
+  }
+}
+
+@keyframes strongShow {
+  0% {
+    opacity: 0;
+    top: 10vh;
+  }
+
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+@keyframes schoolPageShowLeft {
+  0% {
+    left: -30vw;
+  }
+
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes schoolPageShowRight {
+  0% {
+    right: -30vw;
+  }
+
+  100% {
+    right: 0;
+  }
+}
